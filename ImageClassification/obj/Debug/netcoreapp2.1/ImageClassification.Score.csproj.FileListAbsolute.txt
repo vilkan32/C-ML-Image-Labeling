@@ -1,0 +1,13 @@
+C:\Users\vilka\ml\machinelearning-samples\samples\csharp\getting-started\DeepLearning_ImageClassification_TensorFlow\ImageClassification\bin\Debug\netcoreapp2.1\ImageClassification.Score.deps.json
+C:\Users\vilka\ml\machinelearning-samples\samples\csharp\getting-started\DeepLearning_ImageClassification_TensorFlow\ImageClassification\bin\Debug\netcoreapp2.1\ImageClassification.Score.runtimeconfig.json
+C:\Users\vilka\ml\machinelearning-samples\samples\csharp\getting-started\DeepLearning_ImageClassification_TensorFlow\ImageClassification\bin\Debug\netcoreapp2.1\ImageClassification.Score.runtimeconfig.dev.json
+C:\Users\vilka\ml\machinelearning-samples\samples\csharp\getting-started\DeepLearning_ImageClassification_TensorFlow\ImageClassification\bin\Debug\netcoreapp2.1\ImageClassification.Score.dll
+C:\Users\vilka\ml\machinelearning-samples\samples\csharp\getting-started\DeepLearning_ImageClassification_TensorFlow\ImageClassification\bin\Debug\netcoreapp2.1\ImageClassification.Score.pdb
+C:\Users\vilka\ml\machinelearning-samples\samples\csharp\getting-started\DeepLearning_ImageClassification_TensorFlow\ImageClassification\obj\Debug\netcoreapp2.1\ImageClassification.Score.csproj.AssemblyReference.cache
+C:\Users\vilka\ml\machinelearning-samples\samples\csharp\getting-started\DeepLearning_ImageClassification_TensorFlow\ImageClassification\obj\Debug\netcoreapp2.1\ImageClassification.Score.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vilka\ml\machinelearning-samples\samples\csharp\getting-started\DeepLearning_ImageClassification_TensorFlow\ImageClassification\obj\Debug\netcoreapp2.1\ImageClassification.Score.AssemblyInfoInputs.cache
+C:\Users\vilka\ml\machinelearning-samples\samples\csharp\getting-started\DeepLearning_ImageClassification_TensorFlow\ImageClassification\obj\Debug\netcoreapp2.1\ImageClassification.Score.AssemblyInfo.cs
+C:\Users\vilka\ml\machinelearning-samples\samples\csharp\getting-started\DeepLearning_ImageClassification_TensorFlow\ImageClassification\obj\Debug\netcoreapp2.1\ImageClassification.Score.csproj.CoreCompileInputs.cache
+C:\Users\vilka\ml\machinelearning-samples\samples\csharp\getting-started\DeepLearning_ImageClassification_TensorFlow\ImageClassification\obj\Debug\netcoreapp2.1\ImageClassification.Score.dll
+C:\Users\vilka\ml\machinelearning-samples\samples\csharp\getting-started\DeepLearning_ImageClassification_TensorFlow\ImageClassification\obj\Debug\netcoreapp2.1\ImageClassification.Score.pdb
+C:\Users\vilka\ml\machinelearning-samples\samples\csharp\getting-started\DeepLearning_ImageClassification_TensorFlow\ImageClassification\obj\Debug\netcoreapp2.1\ImageClassification.Score.genruntimeconfig.cache

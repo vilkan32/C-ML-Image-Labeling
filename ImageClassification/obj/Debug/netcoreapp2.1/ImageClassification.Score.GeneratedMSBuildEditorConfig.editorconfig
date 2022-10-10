@@ -1,0 +1,3 @@
+is_global = true
+build_property.RootNamespace = ImageClassification.Score
+build_property.ProjectDir = C:\Users\vilka\ml\machinelearning-samples\samples\csharp\getting-started\DeepLearning_ImageClassification_TensorFlow\ImageClassification\
