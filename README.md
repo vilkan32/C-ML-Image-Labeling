@@ -1,15 +1,15 @@
-# Image Classification - Scoring sample
+# Класифициране на картинки - Примерно приложение
 
 | ML.NET version | API type          | Status                        | App Type    | Data type | Scenario            | ML Task                   | Algorithms                  |
 |----------------|-------------------|-------------------------------|-------------|-----------|---------------------|---------------------------|-----------------------------|
 | v1.5.0           | Dynamic API | up-to-date | Console app | Images and text labels | Images classification | TensorFlow Inception5h  | DeepLearning model |
 
 
-## Problem
-Image classification is a common case in many business scenarios. For these cases, you can either use pre-trained models or train your own model to classify images specific to your custom domain. 
+## Проблем
+Класификацията на изображения е често срещан случай в много бизнес сценарии. За тези случаи можете или да използвате предварително обучени модели, или да обучите свой собствен модел, за да класифицирате изображения, специфични за вашия потребителски домейн.
 
-## DataSet
-There are two data sources: the `tsv` file and the image files.  The [tsv file](./ImageClassification/assets/inputs/images/tags.tsv) contains two columns: the first one is defined as `ImagePath` and the second one is the `Label` corresponding to the image. As you can observe, the file does not have a header row, and looks like this:
+## Дата сет
+Има два източника на данни: файлът `tsv` и файловете с изображения. Файлът [tsv](./ImageClassification/assets/inputs/images/tags.tsv) съдържа две колони: първата е дефинирана като „ImagePath“, а втората е „Етикетът“, съответстващ на изображението. Както можете да забележите, файлът няма заглавен ред и изглежда така:
 ```tsv
 broccoli.jpg	broccoli
 broccoli.png	broccoli
@@ -32,35 +32,35 @@ toaster.jpg	toaster
 toaster2.png	toaster
 toaster3.jpg	toaster
 ```
-The training and testing images are located in the assets folders. These images belong to Wikimedia Commons.
-> *[Wikimedia Commons](https://commons.wikimedia.org/w/index.php?title=Main_Page&oldid=313158208), the free media repository.* Retrieved 10:48, October 17, 2018 from:  
+Изображенията за обучение и тестване се намират в папките с активи. Тези изображения принадлежат на Wikimedia Commons.
+> *[Wikimedia Commons](https://commons.wikimedia.org/w/index.php?title=Main_Page&oldid=313158208), безплатното медийно хранилище.*:  
 > https://commons.wikimedia.org/wiki/Pizza  
 > https://commons.wikimedia.org/wiki/Coffee_pot  
 > https://commons.wikimedia.org/wiki/Toaster  
 > https://commons.wikimedia.org/wiki/Category:Canoes  
 > https://commons.wikimedia.org/wiki/Teddy_bear  
 
-## Pre-trained model
-There are multiple models which are pre-trained for classifying images. In this case, we will use a model based on an Inception topology, and trained with images from Image.Net. This model can be downloaded from https://storage.googleapis.com/download.tensorflow.org/models/inception5h.zip, but it's also available at `/ src / ImageClassification / assets /inputs / inception / tensorflow_inception_graph.pb`.
+## Предварително обучен модел
+Има множество модели, които са предварително обучени за класифициране на изображения. В този случай ще използваме модел, базиран на топология Inception и обучен с изображения от Image.Net. Този модел може да бъде изтеглен от https://storage.googleapis.com/download.tensorflow.org/models/inception5h.zip, но също така е достъпен на адрес `/ src / ImageClassification / assets / inputs / inception / tensorflow_inception_graph.pb`.
 
-##  Solution
-The console application project `ImageClassification.Score` can be used to classify sample images based on the pre-trained Inception-5h TensorFlow model. 
+##  Решение
+Проектът за конзолно приложение „ImageClassification.Score“ може да се използва за класифициране на примерни изображения въз основа на предварително обучения модел Inception-5h TensorFlow.
 
-Again, note that this sample only uses/consumes a pre-trained TensorFlow model with ML.NET API. Therefore, it does **not** train any ML.NET model. Currently, TensorFlow is only supported in ML.NET for scoring/predicting with existing TensorFlow trained models. 
+Отново имайте предвид, че тази проба използва/консумира само предварително обучен модел TensorFlow с ML.NET API. Следователно той **не** обучава нито един ML.NET модел. Понастоящем TensorFlow се поддържа само в ML.NET за точкуване/прогнозиране със съществуващи обучени модели на TensorFlow.
 
-You need to follow next steps in order to execute the classification test:
+Трябва да следвате следващите стъпки, за да изпълните теста за класификация:
 
-1) **Set VS default startup project:** Set `ImageClassification.Score` as starting project in Visual Studio.
-2)  **Run the training model console app:** Hit F5 in Visual Studio. At the end of the execution, the output will be similar to this screenshot:
+1) **Задайте VS проект за стартиране по подразбиране:** Задайте `ImageClassification.Score` като стартиращ проект във Visual Studio.
+2) **Стартирайте конзолното приложение за модел на обучение:** Натиснете F5 във Visual Studio. В края на изпълнението изходът ще бъде подобен на тази екранна снимка:
 ![image](./docs/images/train_console.png)
 
 
-##  Code Walkthrough
-There is a single project in the solution named `ImageClassification.Score`, which is responsible for loading the model in TensorFlow format, and then classify images.
+##  Преглед на кода
+Има един единствен проект в решението, наречен `ImageClassification.Score`, който отговаря за зареждането на модела във формат TensorFlow и след това за класифицирането на изображенията.
 
-### ML.NET: Model Scoring
+### ML.NET: Точкуване на модела
 
-Define the schema of data in a class type and refer that type while loading data using TextLoader. Here the class type is ImageNetData. 
+Дефинирайте схемата на данните в тип клас и препратете този тип, докато зареждате данни с помощта на TextLoader. Тук типът клас е ImageNetData.
 
 ```csharp
 public class ImageNetData
@@ -83,15 +83,15 @@ public class ImageNetData
     }
 }
 ```
-The first step is to load the data using TextLoader
+Първата стъпка е да заредите данните с помощта на TextLoader
 
 ```csharp
 var data = mlContext.Data.ReadFromTextFile<ImageNetData>(dataLocation, hasHeader: true);
 ```
 
-The image file used to load images has two columns: the first one is defined as `ImagePath` and the second one is the `Label` corresponding to the image. 
+Файлът с изображение, използван за зареждане на изображения, има две колони: първата е дефинирана като „ImagePath“, а втората е „Етикетът“, съответстващ на изображението.
 
-It is important to highlight that the label in the `ImageNetData` class is not really used when scoring with the TensorFlow model. It is used when testing the predictions so you can compare the actual label of each sample data with the predicted label provided by the TensorFlow model. 
+Важно е да се подчертае, че етикетът в класа „ImageNetData“ всъщност не се използва при точкуване с модела TensorFlow. Използва се при тестване на прогнозите, за да можете да сравните действителния етикет на всяка примерна информация с прогнозния етикет, предоставен от модела TensorFlow. 
 
 ```csv
 broccoli.jpg	broccoli
@@ -100,9 +100,9 @@ canoe.jpg	canoe
 snail.jpg	snail
 teddy1.jpg	teddy bear
 ```
-As you can observe, the file does not have a header row.
+Както можете да забележите, файлът няма заглавен ред.
 
-The Inception model has several default parameters you need to pass in.
+Моделът Inception има няколко параметъра по подразбиране, които трябва да въведете.
 
 ```csharp
 public struct ImageNetSettings
@@ -114,7 +114,7 @@ public struct ImageNetSettings
 }                
 ```
 
-The second step is to define the estimator pipeline. Usually, when dealing with deep neural networks, you must adapt the images to the format expected by the network. This is the reason images are resized and then transformed (mainly, pixel values are normalized across all R,G,B channels).
+Втората стъпка е да се определи конвейерът на оценителя. Обикновено, когато работите с дълбоки невронни мрежи, трябва да адаптирате изображенията към формата, очакван от мрежата. Това е причината изображенията да се преоразмеряват и след това да се трансформират (главно стойностите на пикселите се нормализират във всички R,G,B канали).
 
 ```csharp      
 var pipeline = mlContext.Transforms.LoadImages(outputColumnName: "input", imageFolder: imagesFolder, inputColumnName: nameof(ImageNetData.ImagePath))
@@ -124,19 +124,17 @@ var pipeline = mlContext.Transforms.LoadImages(outputColumnName: "input", imageF
         .ScoreTensorFlowModel(outputColumnNames: new[] { "softmax2" }, inputColumnNames: new[] { "input" },
             addBatchDimensionInput:true));
 ```
-You also need to check the neural network, and check the names of the input / output nodes. In order to inspect the model, you can use tools like [Netron](https://github.com/lutzroeder/netron), which is automatically installed with [Visual Studio Tools for AI](https://visualstudio.microsoft.com/downloads/ai-tools-vs/). 
-These names are used later in the definition of the estimation pipe: in the case of the inception network, the input tensor is named 'input' and the output is named 'softmax2'
-
+Също така трябва да проверите невронната мрежа и да проверите имената на входните / изходните възли. За да проверите модела, можете да използвате инструменти като [Netron](https://github.com/lutzroeder/netron), който се инсталира автоматично с [Visual Studio Tools for AI](https://visualstudio.microsoft. com/downloads/ai-tools-vs/).
+Тези имена се използват по-късно в дефиницията на тръбата за оценка: в случая на началната мрежа, входният тензор се нарича „вход“, а изходът се нарича „softmax2“.
 ![inspecting neural network with netron](./docs/images/netron.png)
 
-Finally, we extract the prediction engine after *fitting* the estimator pipeline. The prediction engine receives as parameter an object of type `ImageNetData` (containing 2 properties: `ImagePath` and `Label`), and then returns and object of type `ImagePrediction`.  
-
+Накрая извличаме двигателя за прогнозиране след *напасване* на конвейера на оценителя. Машината за прогнозиране получава като параметър обект от тип `ImageNetData` (съдържащ 2 свойства: `ImagePath` и `Label`), след което връща и обект от тип `ImagePrediction`.
 ```
 ITransformer model = pipeline.Fit(data);
 var predictionEngine = mlContext.Model.CreatePredictionEngine<ImageNetData, ImageNetPrediction>(model);
 ```
-When obtaining the prediction, we get an array of floats in the property `PredictedLabels`. Each position in the array is assigned to a label, so for example, if the model has 5 different labels, the array will be length = 5. Each position in the array represents the label's probability in that position; the sum of all array values (probabilities) is equal to one. Then, you need to select the biggest value (probability), and check which is the assigned label to that position.
+Когато получаваме прогнозата, получаваме масив от плаващи елементи в свойството `PredictedLabels`. Всяка позиция в масива е присвоена на етикет, така че например, ако моделът има 5 различни етикета, масивът ще бъде с дължина = 5. Всяка позиция в масива представлява вероятността на етикета в тази позиция; сумата от всички стойности на масива (вероятности) е равна на единица. След това трябва да изберете най-голямата стойност (вероятност) и да проверите кой е присвоеният етикет на тази позиция.
 
-### Citation
-Training and prediction images 
+### Цитат
+Изображения за обучение и прогнозиране
 > *Wikimedia Commons, the free media repository.* Retrieved 10:48, October 17, 2018 from https://commons.wikimedia.org/w/index.php?title=Main_Page&oldid=313158208.
